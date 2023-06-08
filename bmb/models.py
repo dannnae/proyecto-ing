@@ -42,7 +42,7 @@ class Usuario(AbstractUser):
     es_tecnico = models.BooleanField(null=True)
     es_vendedor = models.BooleanField(null=True)
     objects = CustomUserManager()
-    
+
 
     def __str__(self):
         return self.username
