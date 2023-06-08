@@ -1,4 +1,4 @@
-from asyncio import AbstractServer
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
 class Solicitud(models.Model):
@@ -10,17 +10,43 @@ class Solicitud(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     
 
-class Usuario(models.Model):
-    nombre = models.CharField(max_length=20)
-    apellido = models.CharField(max_length=20)
-    correo = models.EmailField(unique=True, max_length=100, blank=True, null=True)
-    direccion = models.CharField(max_length=80)
-    es_cliente = models.BooleanField()
-    es_tecnico = models.BooleanField()
-    es_vendedor = models.BooleanField()
+class CustomUserManager(BaseUserManager):
+    def _create_user(self, username, password, **extra_fields):
+        if not username:
+            raise ValueError("El nombre de usuario debe ser especificado")
+        username = self.normalize_email(username)
+        user = self.model(username=username, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, username, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", False)
+        extra_fields.setdefault("is_superuser", False)
+        return self._create_user(username, password, **extra_fields)
+
+    def create_superuser(self, username, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
+
+        if extra_fields.get("is_staff") is not True:
+            raise ValueError("El superusuario debe tener 'is_staff=True'")
+        if extra_fields.get("is_superuser") is not True:
+            raise ValueError("El superusuario debe tener 'is_superuser=True'")
+
+        return self._create_user(username, password, **extra_fields)
+
+
+class Usuario(AbstractUser):
+    es_cliente = models.BooleanField(null=True)
+    es_tecnico = models.BooleanField(null=True)
+    es_vendedor = models.BooleanField(null=True)
+    objects = CustomUserManager()
+    
 
     def __str__(self):
-        return str(self.nombre)
+        return self.username
+
     
 class Producto(models.Model):
     stock = models.IntegerField()

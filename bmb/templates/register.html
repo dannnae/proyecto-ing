@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/style-register.css' %}">
+    <title>Document</title>
+</head>
+    {% load django_bootstrap5 %}  
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+<body>
+    <div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+    <form method="post" >
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="{{ form.username.label }}">Nombre de usuario</label>
+          {{ form.username }}
+        </div>
+        
+        <div class="form-group">
+            <label for="{{ form.email.label }}">Email</label>
+            {{ form.email }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.password1.label }}">Contrasena</label>
+            {{ form.password1 }}
+          </div>
+        <div class="form-group">
+          <label for="{{ form.password2.label }}">Confirmar contrasena</label>
+          {{ form.password2 }}
+        </div>
+        
+        
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+</body>
+
+
+  </div>
+
+
+
+
+
+
+
+
