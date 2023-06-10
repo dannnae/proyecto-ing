@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import RegistrationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
-
-def login(request):
-    return render(request, "login.html")
+@login_required
+def completo(request):
+    return render(request, "completo.html")
 
 def index(request):
     return render(request, "index.html")
@@ -19,12 +21,6 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'register.html', {'form': form})
 
-
-
-
-
-
-
-
-
-
+def exit(request):
+    logout(request)
+    return redirect('index')
