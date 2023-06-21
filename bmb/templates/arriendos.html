@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/arriendos.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
+    <title>Arriendos - MasterBikes</title>
+
+    {% load bootstrap5 %}  
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="main-container">
+          <header>
+              <div class="logo-block">
+                  <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo">
+              </div>
+              <div class="menu-block">
+                  <ul class="nav-links">
+                      <li><a href="{% url 'index' %}">Inicio</a></li>
+                      <li><a href="{% url 'arriendos' %}">Arriendos</a></li>
+                      <li><a href="{% url 'reparaciones' %}">Reparaciones</a></li>
+                      <li><a href="{% url 'accesorios' %}">Accesorios</a></li>
+                      <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                  </ul>
+
+              </div>
+              <div class="signin-block">
+                  <a href="{% url 'register' %}">Iniciar Sesion</a>
+
+              </div>
+        </header>
+
+        <div class="content">
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1841467-home_default/bianchi-peregrine-celeste-nero-30-anniversario.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">PEREGRINE CELESTE / NERO 30 ANNIVERSARIO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1841472-home_default/bianchi-peregrine-oliva-30-anniversario.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">PEREGRINE OLIVA  30 ANNIVERSARIO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1841462-home_default/bianchi-peregrine-celeste-30-anniversario.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">PEREGRINE CELESTE 30 ANNIVERSARIO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1839140-home_default/bianchi-goliat-16-morado.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">GOLIAT 16 MORADO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1830385-home_default/bicicleta-hotwheels-20-rojo-gris.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">HOTWHEELS</h5>
+                  <p class="card-text">BICICLETA NIÑO 20 ROJO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1831432-home_default/bicicleta-bianchi-goliat-12-negra.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">BICICLETA Goliat 12 negra</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1839102-home_default/bianchi-goliat-16-dsx-negro.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">GOLIAT 16 DSX NEGRO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1840788-home_default/barbie-12-rosado.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BARBIE</h5>
+                  <p class="card-text">Bicicleta Niña 12 rosada</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1831392-home_default/scooter-electrico-alpina-e-scooter-a15.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA </h5>
+                  <p class="card-text">SCOOTER ELECTRICO E-SCOOTER A1.5</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842561-home_default/bianchi-aggressor-29-alloy-size-m-amarillo-semi-matte.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">AGGRESSOR 29 ALLOY SIZE AMARILLO SEMI MATTE</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842560-home_default/bianchi-stone-mountain-29-sx-alloy-negro-semi-matte-celeste-bianchi.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">STONE MOUNTAIN 29 SX ALLOY NEGRO SEMI MATTE</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842453-home_default/bianchi-stone-mountain-275-negro-semi-matte.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">STONE MOUNTAIN 27,5  NEGRO SEMI MATTE</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842548-home_default/bianchi-aggressor-29-alloy-size-m-celeste.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">AGGRESSOR 29 ALLOY SIZE CELESTE BIANCHI</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842459-home_default/bianchi-aggressor-29-alloy-size-m-negro.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">AGGRESSOR 29 ALLOY  SX NEGRO</p>
+                  <a href={% url 'formarriendo' %}l" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842299-home_default/bianchi-stone-mountain-29-sx-alloy-size-l-negro-semi-matte-amarillo.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">STONE MOUNTAIN 29 NEGRO SEMI MATTE AMARILLO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842448-home_default/bianchi-aggressor-275-sx-size-m-negro-semi-mate.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI</h5>
+                  <p class="card-text">AGGRESSOR 27.5  SX NEGRO SEMI MATE</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1841978-home_default/scooter-electrico-alpina-e-scooter-a1-negro.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Alpina </h5>
+                  <p class="card-text">Scooter electrico A1</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1797007-home_default/bianchi-stone-mountain-275-sx-size-s-plata-semi-matte.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">STONE MOUNTAIN 27,5 SX  PLATA SEMI MATTE</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1838535-home_default/bianchi-c2c-infinito-athena-eps-h50-carbon-campagnolo.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">C2C INFINITO ATHENA EPS H50 CARBON MATE/PLATEADO/BLANCO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1839554-home_default/bianchi-goliat-12-negro.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">BIANCHI </h5>
+                  <p class="card-text">GOLIAT 12 NEGRO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1841205-home_default/bicicleta-kapra-mtb-m-500-sx-275-negra.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">KAPRA </h5>
+                  <p class="card-text">BICICLETA MTB M-500 SX  27.5 NEGRA</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1839067-home_default/alpina-mtb-275-plus-sx-rojo.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA</h5>
+                  <p class="card-text">MTB-27,5 PLUS Shimano SX ROJO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1831417-home_default/bicicleta-kapra-mtb-l-500-275-blanca.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">KAPRA</h5>
+                  <p class="card-text">MTB L-500 27.5 BLANCA</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1838490-home_default/alpina-mtb-275-plus-sx-negro.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA</h5>
+                  <p class="card-text">MTB-27.5 PLUS Shimano SX NEGRO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1834698-home_default/scooter-electrico-alpina-e-scooter-a7-negro.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA </h5>
+                  <p class="card-text">Scooter Electrico E-SCOOTER A7 NEGRO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1732755-home_default/alpina-mtb-275-plus-sx-azul.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA</h5>
+                  <p class="card-text">MTB-27,5 PLUS  Shimano SX AZUL</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1842328-home_default/alpina-mtb-29-plus-sx-plata.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA</h5>
+                  <p class="card-text">MTB-29 PLUS Shimano SX PLATA</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+            <!-- <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1831421-home_default/alpina-mtb-29-plus-sx-rojo.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ALPINA</h5>
+                  <p class="card-text">MTB-29 PLUS Shimano SX ROJO</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div> -->
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://www.bianchistore.cl/1837053-home_default/bicicleta-kapra-mtb-b-100-sx-275-negra.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">KAPRA</h5>
+                  <p class="card-text">BICICLETA MTB B-100 SX 27.5 NEGRA</p>
+                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+                </div>
+            </div>
+
+        </div>
+            
+
+        <div class="separacion"></div>
+
+        <footer class="pie-pagina">
+            <div class="grupo-1">
+                <div class="box">
+                    <figure>
+                        <img src="{% static 'bmb/img/logo.png'%}" alt="Logo Masterbike">
+                    </figure>
+                </div>
+                <div class="box">
+                    <h2>SOBRE NOSOTROS</h2>
+                    <p>Completos con bigote</p>
+                    <P>Italiano palta mayo</P>
+                </div>
+                <div class="box">
+                    <h2>SIGUENOS</h2>
+                    <div class="red-social">
+                        <a href="#" class="fa fa-facebook fa-2xl"></a>
+                        <a href="#" class="fa fa-instagram fa-2xl"></a>
+                        <a href="#" class="fa fa-twitter fa-2xl"></a>
+                        <a href="#" class="fa fa-youtube fa-2xl"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="grupo-2">
+                <small>&copy; 2023 <b>Masterbikes</b> - Todos los Derechos Reservados.</small>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/reparaciones.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
+    <title>Arriendos - MasterBikes</title>
+
+    {% load bootstrap5 %}  
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="logo-block">
+                <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo">
+            </div>
+            <div class="menu-block">
+                <ul class="nav-links">
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'arriendos' %}">Arriendos</a></li>
+                    <li><a href="{% url 'reparaciones' %}">Reparaciones</a></li>
+                    <li><a href="{% url 'accesorios' %}">Accesorios</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                </ul>
+
+            </div>
+            <div class="signin-block">
+                <a href="{% url 'register' %}">Iniciar Sesion</a>
+
+            </div>
+        </header>
+
+        <div class="content">
+
+            <div class="titulo">
+                <h2>Pide con nosotros una cotizacion</h2>
+                <h5>para la reparacion de tu bicicleta</h5>
+            </div>
+
+            <div class="cajon">
+                <form class="formulario">
+                    <label for="" class="form-label">Nombre y Apellido</label>
+                    <div class="row">
+                        <div class="col">
+                          <input type="text" class="form-control form-control-lg" placeholder="Nombre" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control form-control-lg" placeholder="Apellido" aria-label="Last name">
+                        </div>
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Direccion de correo electronico</label>
+                        <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1" class="form-label">Nro de telefono</label>
+                          <input type="text" class="form-control form-control-lg" placeholder="Nro telefono" aria-label="First name">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <label for="inputMarca" class="form-label">Marca</label>
+                            <select id="inputMarca" class="form-select form-select-lg">
+                              <option selected>Elige la marca</option>
+                              <option>Oxford</option>
+                              <option>Kali</option>
+                              <option>Kona</option>
+                              <option>GT</option>
+                              <option>Cannondale</option>
+                              <option>Giant</option>
+                              <option>Bianchi</option>
+                              <option>Oxygen</option>
+                              <option>Trek</option>
+                              <option>P3</option>
+                              <option>Aventon</option>
+                              <option>Otra..</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col">
+                            <label for="inputTipo" class="form-label">Tipo</label>
+                            <select id="inputTipo" class="form-select form-select-lg">
+                              <option selected>Elige el Tipo</option>
+                              <option>Urbana</option>
+                              <option>Ruta</option>
+                              <option>Triatlon</option>
+                              <option>MountainBike</option>
+                              <option>Plegable</option>
+                              <option>BMX</option>
+                              <option>Paseo</option>
+                              <option>Hibridas</option>
+                              <option>Pista</option>
+                              <option>Electrica</option>
+                              <option>Gravel</option>
+                              <option>Otra..</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="" class="form-label">Modelo</label>
+                        <input class="form-control form-control-lg" type="text" placeholder="Terreneitor" aria-label=".form-control-lg">
+                    </div>
+                    
+                    <div>
+                        <label for="" class="form-label">Puedes detallarnos el problema que tienes.</label>
+                        <div class="input-group">
+                            <textarea class="form-control" aria-label="With textarea" placeholder="ta mala :("></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Puedes enviarnos imagenes del problema o estado de tu bicicleta</label>
+                        <input class="form-control form-control-lg" type="file" id="formFileMultiple" multiple>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                      </div>
+                    
+                </form>
+
+            </div>
+
+            
+
+        </div>
+            
+
+        <div class="separacion"></div>
+
+        <footer class="pie-pagina">
+            <div class="grupo-1">
+                <div class="box">
+                    <figure>
+                        <img src="logo.png" alt="Logo Masterbike">
+                    </figure>
+                </div>
+                <div class="box">
+                    <h2>SOBRE NOSOTROS</h2>
+                    <p>Completos con bigote</p>
+                    <P>Italiano palta mayo</P>
+                </div>
+                <div class="box">
+                    <h2>SIGUENOS</h2>
+                    <div class="red-social">
+                        <a href="#" class="fa fa-facebook fa-2xl"></a>
+                        <a href="#" class="fa fa-instagram fa-2xl"></a>
+                        <a href="#" class="fa fa-twitter fa-2xl"></a>
+                        <a href="#" class="fa fa-youtube fa-2xl"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="grupo-2">
+                <small>&copy; 2023 <b>Masterbikes</b> - Todos los Derechos Reservados.</small>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

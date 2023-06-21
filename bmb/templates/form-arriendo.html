@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/form-arriendo.css'%}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+   <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
+    <title>Arriendos - MasterBikes</title>
 
     {% load bootstrap5 %}  
     {% bootstrap_css %}
@@ -35,48 +35,51 @@
             </div>
             <div class="signin-block">
                 <a href="{% url 'register' %}">Iniciar Sesion</a>
-
             </div>
         </header>
 
         <div class="content">
-            <div class="img-main">
-                <img src="{% static 'bmb/img/index/indexM.png'%}" alt="bici">
+
+            <div class="titulo">
+                <h2>Pide con nosotros una Solicitud de Arriendo</h2>
+                <h5>rellena con tus datos</h5>
             </div>
 
-            <div class="tarjetas">
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'bmb/img/index/venta.jpg'%}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Ofrecemos una amplia selección de las mejores bicicletas disponibles en el mercado, todo ello a precios competitivos.</p>
+            <div class="cajon">
+                <form class="formulario">
+                    <label for="" class="form-label">Nombre y Apellido</label>
+                    <div class="row">
+                        <div class="col">
+                          <input type="text" class="form-control form-control-lg" placeholder="Nombre" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control form-control-lg" placeholder="Apellido" aria-label="Last name">
+                        </div>
                     </div>
-                  </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'bmb/img/index/reparaciones.jpg'%}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Contamos con un equipo experimentado para la reparacion de cualquier tipo de bicicleta con las mejores piezas del mercado.</p>
-                    </div>
-                </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'bmb/img/index/Competiciones.jpg'%}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Tambien estamos presentes en las principales competiciones dentro y fuera del pais patrocinando a nuestros competidores aliados.</p>
-                    </div>
-                </div>
-            </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1" class="form-label">Nro de telefono</label>
+                          <input type="text" class="form-control form-control-lg" placeholder="Nro telefono" aria-label="First name">
+                        </div>
 
-        </div>
+                        <div class="col">
+                            <label for="inputTipo" class="form-label">Metodo de Pago</label>
+                            <select id="inputTipo" class="form-select form-select-lg">
+                              <option selected>Metodo de Pago</option>
+                              <option>Efectivo</option>
+                              <option>Debito</option>
+                              <option>Credito</option>
+                              <option>Prepago</option>
+                              <option>Criptomonedas</option>
+                              <option>En Carne</option>
+                            </select>
+                        </div>
+                    </div>
 
-        <div class="novedades">
-            <div class="novedades-container">
-                <h2>¡NOVEDADES Y BENEFICIOS!</h2>
-                <p>Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
-                <div class="novedades-form">
-                    <input type="email" placeholder="  Correo electrónico">
-                    <button type="submit">Suscribir</button>
-                </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                      </div>
+                </form>
             </div>
         </div>
 
@@ -108,7 +111,7 @@
                 <small>&copy; 2023 <b>Masterbikes</b> - Todos los Derechos Reservados.</small>
             </div>
         </footer>
-
     </div>
+
 </body>
 </html>
