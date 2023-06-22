@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/accesorios.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
-    <title>Inicio - Masterbikes</title>
+    <title>Accesorios Proximamente - MasterBikes</title>
 
     {% load bootstrap5 %}  
     {% bootstrap_css %}
@@ -20,9 +20,9 @@
 <body>
     <div class="main-container">
         <header>
-            <div class="logo-block">
-                <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo">
-            </div>
+            <a href="{% url 'index' %}" class="logo-block">
+                <img src="{% static 'bmb/img/logo.png' %}" alt="Logo">
+            </a>
             <div class="menu-block">
                 <ul class="nav-links">
                     <li><a href="{% url 'index' %}">Inicio</a></li>
@@ -34,51 +34,30 @@
 
             </div>
             <div class="signin-block">
-                <a href="{% url 'register' %}">Iniciar Sesion</a>
-
+                <a href="{% url 'register'%}">Iniciar Sesion</a>
             </div>
         </header>
 
         <div class="content">
-            <div class="img-main">
-                <img src="{% static 'bmb/img/index/indexM.png'%}" alt="bici">
+
+            <div class="titulo">
+                <h1>Proximamente</h1>
+                <h5>Los mejores accesorios para tu bicicleta ¡y mucho mas!</h5>
             </div>
 
-            <div class="tarjetas">
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'bmb/img/index/venta.jpg'%}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Ofrecemos una amplia selección de las mejores bicicletas disponibles en el mercado, todo ello a precios competitivos.</p>
-                    </div>
-                  </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'bmb/img/index/reparaciones.jpg'%}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Contamos con un equipo experimentado para la reparacion de cualquier tipo de bicicleta con las mejores piezas del mercado.</p>
-                    </div>
-                </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'bmb/img/index/Competiciones.jpg'%}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Tambien estamos presentes en las principales competiciones dentro y fuera del pais patrocinando a nuestros competidores aliados.</p>
-                    </div>
-                </div>
-            </div>
+            <p>Suscríbete ahora a nuestro newsletter y recibe en tu email</p>
+            <p>las ultimas novedades en MasterBikes.</p>
 
-        </div>
-
-        <div class="novedades">
-            <div class="novedades-container">
-                <h2>¡NOVEDADES Y BENEFICIOS!</h2>
-                <p>Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
-                <div class="novedades-form">
-                    <input type="email" placeholder="  Correo electrónico">
-                    <button type="submit">Suscribir</button>
+            <div class="novedades">
+                <div class="novedades-container">
+                    <div class="novedades-form">
+                        <input type="email" placeholder="  Correo electrónico">
+                        <button type="submit">Suscribir</button>
+                    </div>
                 </div>
             </div>
         </div>
+            
 
         <div class="separacion"></div>
 
@@ -86,7 +65,7 @@
             <div class="grupo-1">
                 <div class="box">
                     <figure>
-                        <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo Masterbike">
+                        <img src="{% static 'bmb/img/logo.png' %}" alt="Logo Masterbike">
                     </figure>
                 </div>
                 <div class="box">
@@ -108,7 +87,7 @@
                 <small>&copy; 2023 <b>Masterbikes</b> - Todos los Derechos Reservados.</small>
             </div>
         </footer>
-
     </div>
+
 </body>
 </html>
