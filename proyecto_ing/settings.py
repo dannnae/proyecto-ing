@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'proyecto_ing.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,5 +128,16 @@ AUTH_USER_MODEL = 'bmb.Usuario'
 
 # Variables de Redireccion de login y logout
 
+#LOGIN_REDIRECT_URL = 'index'
+#LOGOUT_REDIRECT_URL = 'index'
+
+
+MEDIA_URL = '/img/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_SECURE = True
+
 LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+
+LOGIN_URL = '/admin/login/'
