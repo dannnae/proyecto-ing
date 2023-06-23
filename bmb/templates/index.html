@@ -13,10 +13,19 @@
     <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
     <title>Inicio - Masterbikes</title>
 
+
+    
     {% load bootstrap5 %}  
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
+
+{% comment %} PARA COMPROBAR SI EL USUARIO ESTA LOGEADO {% endcomment %}
+{% if user.is_authenticated %}
+    <p>Bienvenido, {{ user.username }}!</p>
+{% else %}
+    <p>No has iniciado sesión</p>
+{% endif %}
 <body>
     <div class="main-container">
         <header>
@@ -30,11 +39,28 @@
                     <li><a href="{% url 'reparaciones' %}">Reparaciones</a></li>
                     <li><a href="{% url 'accesorios' %}">Accesorios</a></li>
                     <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{usuario.username}}
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Solicitudes</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                        {% endif %}
+              
+                        {% comment %} {% if user.is_staff %}
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'listar_mangas' %}">Agregar mangas</a></li>
+                        
+                        {% endif %} {% endcomment %}
                 </ul>
 
             </div>
             <div class="signin-block">
-                <a href="{% url 'register' %}">Iniciar Sesion</a>
+                <a href="{% url 'login' %}">Iniciar Sesion</a>
+        
 
             </div>
         </header>
