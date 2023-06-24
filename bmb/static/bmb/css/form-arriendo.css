@@ -100,8 +100,12 @@ input .form-date{
 
 
 
-
-
+/* css textarea */
+.custom-textarea {
+    resize: none;
+    width: 80px;
+    height: 50px;
+  }
 
 
 
