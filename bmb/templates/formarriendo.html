@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 {% load static %}
 
 <html lang="en">
@@ -46,19 +46,24 @@
             </div>
 
             <div class="cajon">
-                <form class="formulario">
-                    <label for="" class="form-label">Nombre y Apellido</label>
+              <form method="POST" class="form">
+                {% csrf_token %}
+
+
+
+                    <label for="" class="form-label">Nombre</label>
                     <div class="row">
+
+
+                      
                         <div class="col">
-                          <input type="text" class="form-control form-control-lg" placeholder="Nombre" aria-label="First name">
+                          <input type="text" class="form-control form-control-lg" placeholder="Nombre" aria-label="username">
                         </div>
-                        <div class="col">
-                          <input type="text" class="form-control form-control-lg" placeholder="Apellido" aria-label="Last name">
-                        </div>
+                        
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label for="exampleFormControlInput1" class="form-label">Nro de telefono</label>
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
                           <input type="text" class="form-control form-control-lg" placeholder="Nro telefono" aria-label="First name">
                         </div>
 
@@ -66,12 +71,6 @@
                             <label for="inputTipo" class="form-label">Metodo de Pago</label>
                             <select id="inputTipo" class="form-select form-select-lg">
                               <option selected>Metodo de Pago</option>
-                              <option>Efectivo</option>
-                              <option>Debito</option>
-                              <option>Credito</option>
-                              <option>Prepago</option>
-                              <option>Criptomonedas</option>
-                              <option>En Carne</option>
                             </select>
                         </div>
                     </div>
@@ -114,4 +113,34 @@
     </div>
 
 </body>
-</html>
+</html>  {% endcomment %}
+
+
+
+
+
+
+
+
+
+<form method="POST">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  
+  {% for form in formset %}
+    <fieldset>
+      <legend>Solicitud</legend>
+      {{ form.as_table }}
+    </fieldset>
+    <fieldset>
+      <legend>Usuario</legend>
+      <p>Nombre: {{ request.user.username }}</p>
+      <p>Email: {{ request.user.email }}</p>
+    </fieldset>
+  {% endfor %}
+  
+  <button type="submit">Enviar</button>
+</form>
+
+
+

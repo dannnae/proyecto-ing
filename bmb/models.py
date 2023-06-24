@@ -1,14 +1,27 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
+class MetodoPago(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+class TipoSoli(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
 class Solicitud(models.Model):
-    tipo = models.CharField(max_length=50)
     descripcion = models.TextField()
     fecha_inicio = models.DateField()
-    fecha_termino = models.DateField()
-    confirmacion = models.BooleanField()
+    fecha_termino = models.DateField(null=True)
+    confirmacion = models.BooleanField(null=True)
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
-    
+    metodo_pago = models.ForeignKey(MetodoPago, on_delete=models.CASCADE)
+    tipo_soli = models.ForeignKey(TipoSoli, on_delete=models.CASCADE)
+
 
 class CustomUserManager(BaseUserManager):
     def _create_user(self, username, password, **extra_fields):
