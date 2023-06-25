@@ -12,10 +12,12 @@
       <th>Fecha de inicio</th>
       <th>Confirmación</th>
       <th>Método de pago</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
     {% for solicitud in solicitudes %}
+
     <tr>
       <td>{{ solicitud.id }}</td>
       <td>{{ solicitud.tipo_soli }}</td>
@@ -23,14 +25,18 @@
       <td>{{ solicitud.fecha_inicio }}</td>
       <td>{{ solicitud.confirmacion }}</td>
       <td>{{ solicitud.metodo_pago }}</td>
-    </tr>
+      
+   
+
     <td>
-      {% comment %} <a class="text-reset" href="{% url 'modificar_solicitud' solicitud.id %}">Editar</a>
-      <a class="text-reset" href="{% url 'eliminar_solicitud' solicitud.id %}">Eliminar</a> {% endcomment %}
+      <a class="text-reset" href="{% url 'modificar_solicitud' solicitud.id %}">Editar</a>
+      <a class="text-reset" href="{% url 'eliminar_solicitud' solicitud.id %}">Eliminar</a>
     </td>
-    {% endfor %}
-    <ul style="list-style: none;">
-      <li><a href="{% url 'index' %}">Volver</a> </li>
+  </tr>
+  {% endfor %}
+  <ul style="list-style: none;">
+  <li><a href="{% url 'index' %}">Volver</a> </li>
+  </ul>
     </ul>
   </tbody>
 </table>
