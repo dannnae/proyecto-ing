@@ -17,7 +17,7 @@ class Solicitud(models.Model):
     descripcion = models.TextField()
     fecha_inicio = models.DateField()
     fecha_termino = models.DateField(null=True)
-    confirmacion = models.BooleanField(null=True)
+    confirmacion = models.CharField(max_length=20, null=True)
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     metodo_pago = models.ForeignKey(MetodoPago, on_delete=models.CASCADE)
     tipo_soli = models.ForeignKey(TipoSoli, on_delete=models.CASCADE)
@@ -69,8 +69,11 @@ class Producto(models.Model):
 class Bicicleta(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField()
+    marca = models.CharField(max_length=20)
     solicitud = models.ForeignKey(Solicitud, on_delete=models.CASCADE)
-    despacho = models.ForeignKey('Despacho', on_delete=models.CASCADE)
+    despacho = models.ForeignKey('Despacho', on_delete=models.CASCADE, null=True)
+    
+
 
 class Despacho(models.Model):
     estado = models.CharField(max_length=20)

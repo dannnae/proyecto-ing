@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ {% comment %} <!DOCTYPE html>
 {% load static %}
 
 <html lang="en">
@@ -182,4 +182,43 @@
     </div>
 
 </body>
-</html>
+</html>  {% endcomment %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    
+    {% for form in formset %}
+      <fieldset>
+        <legend>Solicitud</legend>
+        {{ form.as_table }}
+        <div class="form-group">
+          <label for="{{ form.prefix }}-tipo_soli">Tipo de Solicitud: Reparación</label>
+          {{ form.tipo_soli }}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Usuario</legend>
+        <p>Nombre: {{ request.user.username }}</p>
+        <p>Email: {{ request.user.email }}</p>
+      </fieldset>
+      <fieldset>
+        <legend>Bicicleta</legend>
+        <div class="form-group">
+          <label for="{{ form.prefix }}-nombre">Nombre:</label>
+          <input type="text" id="{{ form.prefix }}-nombre" name="{{ form.prefix }}-nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.prefix }}-descripcion">Descripción:</label>
+          <textarea id="{{ form.prefix }}-descripcion" name="{{ form.prefix }}-descripcion" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.prefix }}-marca">Marca:</label>
+          <input type="text" id="{{ form.prefix }}-marca" name="{{ form.prefix }}-marca" class="form-control" required>
+        </div>
+      </fieldset>
+    {% endfor %}
+    
+    <button type="submit">Enviar</button>
+  </form>
+  
