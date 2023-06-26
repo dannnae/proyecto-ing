@@ -10,6 +10,7 @@ body{
     flex-direction: row;
 }
 
+
 header{
     height: 100px;
     display: flex;

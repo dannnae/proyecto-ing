@@ -15,7 +15,7 @@ class RegistrationForm(UserCreationForm):
         }
 
 
-
+#CSS PARA SOLICITUD DE ARRIENDO
 class SolicitudForm(forms.ModelForm):
     fecha_inicio = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     descripcion = forms.CharField(widget=forms.Textarea(attrs={'class': 'custom-textarea'}))

@@ -1,127 +1,11 @@
-<!DOCTYPE html>
-{% load static %}
+{% comment %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/arriendos.css'%}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
-    <title>Arriendos - MasterBikes</title>
-
-    {% load bootstrap5 %}  
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
-    <div class="main-container">
-          <header>
-              <div class="logo-block">
-                  <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo">
-              </div>
-              <div class="menu-block">
-                  <ul class="nav-links">
-                      <li><a href="{% url 'index' %}">Inicio</a></li>
-                      <li><a href="{% url 'arriendos' %}">Arriendos</a></li>
-                      <li><a href="{% url 'reparaciones' %}">Reparaciones</a></li>
-                      <li><a href="{% url 'accesorios' %}">Accesorios</a></li>
-                      <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                      {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ user.username }}
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="{% url 'listar_solicitudes' %}">Solicitudes</a></li>
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
-                     
-          
-                </ul>
-                {% else %}
-            </div>
-            <div class="signin-block">
-                <a href="{% url 'login' %}">Iniciar Sesion</a>
-                  </ul>
-
-                </div>
-                {% endif %}
-        </header>
-
-        <div class="content">
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1841467-home_default/bianchi-peregrine-celeste-nero-30-anniversario.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BIANCHI </h5>
-                  <p class="card-text">PEREGRINE CELESTE / NERO 30 ANNIVERSARIO</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1841472-home_default/bianchi-peregrine-oliva-30-anniversario.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BIANCHI </h5>
-                  <p class="card-text">PEREGRINE OLIVA  30 ANNIVERSARIO</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1841462-home_default/bianchi-peregrine-celeste-30-anniversario.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BIANCHI</h5>
-                  <p class="card-text">PEREGRINE CELESTE 30 ANNIVERSARIO</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div>
-
-            <!-- <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1839140-home_default/bianchi-goliat-16-morado.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BIANCHI </h5>
-                  <p class="card-text">GOLIAT 16 MORADO</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div> -->
-
+            
             <!-- <div class="card" style="width: 18rem;">
                 <img src="https://www.bianchistore.cl/1830385-home_default/bicicleta-hotwheels-20-rojo-gris.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">HOTWHEELS</h5>
                   <p class="card-text">BICICLETA NIÑO 20 ROJO</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div> -->
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1831432-home_default/bicicleta-bianchi-goliat-12-negra.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BIANCHI</h5>
-                  <p class="card-text">BICICLETA Goliat 12 negra</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1839102-home_default/bianchi-goliat-16-dsx-negro.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BIANCHI </h5>
-                  <p class="card-text">GOLIAT 16 DSX NEGRO</p>
-                  <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
-                </div>
-            </div>
-
-            <!-- <div class="card" style="width: 18rem;">
-                <img src="https://www.bianchistore.cl/1840788-home_default/barbie-12-rosado.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">BARBIE</h5>
-                  <p class="card-text">Bicicleta Niña 12 rosada</p>
                   <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
                 </div>
             </div> -->
@@ -349,4 +233,115 @@
     </div>
 
 </body>
+</html>  {% endcomment %}
+
+
+
+  <!DOCTYPE html>
+  {% load static %}
+  
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/arriendos.css'%}">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
+      <title>Arriendos - MasterBikes</title>
+  
+      {% load bootstrap5 %}  
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
+  </head>
+  <body>
+      <div class="main-container">
+            <header>
+                <div class="logo-block">
+                    <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo">
+                </div>
+                <div class="menu-block">
+                    <ul class="nav-links">
+                        <li><a href="{% url 'index' %}">Inicio</a></li>
+                        <li><a href="{% url 'arriendos' %}">Arriendos</a></li>
+                        <li><a href="{% url 'reparaciones' %}">Reparaciones</a></li>
+                        <li><a href="{% url 'accesorios' %}">Accesorios</a></li>
+                        <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                        {% if user.is_authenticated %}
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Perfil</a></li>
+                          <li><a class="dropdown-item" href="{% url 'ver_solicitudes' %}?nombre=Arriendo">Solicitudes de arriendo</a></li>
+                          <li><a class="dropdown-item" href="{% url 'ver_solicitudes' %}?nombre=Reparación">Solicitudes de reparaciones</a></li>
+                          <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                       
+            
+                  </ul>
+                  {% else %}
+              </div>
+              <div class="signin-block">
+                  <a href="{% url 'login' %}">Iniciar Sesion</a>
+                    </ul>
+  
+                  </div>
+                  {% endif %}
+          </header>
+  
+      <div class="content">
+      {% for bicicleta in bicicletas %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ bicicleta.imagen.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ bicicleta.marca }}</h5>
+                <p class="card-text">{{ bicicleta.descripcion}}</p>
+                <a href="{% url 'formarriendo' %}" class="btn btn-primary">Consultar Stock</a>
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+    <div class="separacion"></div>
+
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <img src="{% static 'bmb/img/logo.png'%}" alt="Logo Masterbike">
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Completos con bigote</p>
+                <P>Italiano palta mayo</P>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                  <a href="https://www.facebook.com/" class="fa fa-facebook fa-2xl"></a>
+                  <a href="https://www.instagram.com/" class="fa fa-instagram fa-2xl"></a>
+                  <a href="https://twitter.com/" class="fa fa-twitter fa-2xl"></a>
+                  <a href="https://www.youtube.com/" class="fa fa-youtube fa-2xl"></a>
+              </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2023 <b>Masterbikes</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+</div>
+
+  </body>
+  <style>
+    .dropdown-menu {
+        background-color: #1B1A1F;
+</style>
+
+
 </html>
+

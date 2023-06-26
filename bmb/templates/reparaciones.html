@@ -1,16 +1,4 @@
- {% comment %} <!DOCTYPE html>
-{% load static %}
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/reparaciones.css'%}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
+ {% comment %} 
     <title>Reparaciones - MasterBikes</title>
 
     {% load bootstrap5 %}  
@@ -184,41 +172,150 @@
 </body>
 </html>  {% endcomment %}
 
-<form method="POST">
-    {% csrf_token %}
-    {{ formset.management_form }}
-    
-    {% for form in formset %}
-      <fieldset>
-        <legend>Solicitud</legend>
-        {{ form.as_table }}
-        <div class="form-group">
-          <label for="{{ form.prefix }}-tipo_soli">Tipo de Solicitud: Reparación</label>
-          {{ form.tipo_soli }}
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Usuario</legend>
-        <p>Nombre: {{ request.user.username }}</p>
-        <p>Email: {{ request.user.email }}</p>
-      </fieldset>
-      <fieldset>
-        <legend>Bicicleta</legend>
-        <div class="form-group">
-          <label for="{{ form.prefix }}-nombre">Nombre:</label>
-          <input type="text" id="{{ form.prefix }}-nombre" name="{{ form.prefix }}-nombre" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="{{ form.prefix }}-descripcion">Descripción:</label>
-          <textarea id="{{ form.prefix }}-descripcion" name="{{ form.prefix }}-descripcion" class="form-control" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="{{ form.prefix }}-marca">Marca:</label>
-          <input type="text" id="{{ form.prefix }}-marca" name="{{ form.prefix }}-marca" class="form-control" required>
-        </div>
-      </fieldset>
-    {% endfor %}
-    
-    <button type="submit">Enviar</button>
-  </form>
-  
+
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'bmb/css/reparaciones.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6469105615.js" crossorigin="anonymous"></script>
+    <title>Reparaciones - MasterBikes</title>
+
+
+    {% load bootstrap5 %}  
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+  </head>
+  <body>
+      <div class="main-container">
+          <header>
+              <div class="logo-block">
+                  <img src="{% static 'bmb/img/index/logo.png'%}" alt="Logo">
+              </div>
+              <div class="menu-block">
+                  <ul class="nav-links">
+                      <li><a href="{% url 'index' %}">Inicio</a></li>
+                      <li><a href="{% url 'arriendos' %}">Arriendos</a></li>
+                      <li><a href="{% url 'reparaciones' %}">Reparaciones</a></li>
+                      <li><a href="{% url 'accesorios' %}">Accesorios</a></li>
+                      <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Perfil</a></li>
+                          <li><a class="dropdown-item" href="{% url 'ver_solicitudes' %}?nombre=Arriendo">Solicitudes de arriendo</a></li>
+                          <li><a class="dropdown-item" href="{% url 'ver_solicitudes' %}?nombre=Reparación">Solicitudes de reparaciones</a></li>
+                          <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                       
+                  </ul>
+                  {% else %}
+              </div>
+              <div class="signin-block">
+                  <a href="{% url 'login' %}">Iniciar Sesion</a>
+              </div>
+              {% endif %}
+          </header>
+
+                  <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="content">
+
+                      <div class="titulo">
+                          <h2>Pide con nosotros una cotizacion</h2>
+                          <h5>para la reparacion de tu bicicleta</h5>
+                      </div>
+          
+                      <div class="cajon">
+                          <form class="formulario">
+
+                    {{ formset.management_form }}
+                    
+                
+                    {% for form in formset %}
+                    <fieldset>
+                      <legend>Usuario</legend>
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="typePasswordX">Nombre: {{ request.user.username }}</label>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="typePasswordX">Correo: {{ request.user.email }}</label>
+                      </div>
+                    </fieldset>
+                      <fieldset>
+
+                        {% comment %} Descripcion: 
+                        Fecha inicio: 
+                       dd-mm-aaaa
+                        Metodo pago: 
+                       ---------
+                       Tipo de Solicitud: Reparación {% endcomment %}
+
+
+                       <fieldset>
+                        <legend>Solicitud</legend>
+                        
+                        <div class="form-outline form-white mb-4">
+                          <label for="{{ form.prefix }}-tipo_soli">Tipo de Solicitud: Reparación</label>
+                          {{ form.tipo_soli }}
+                        </div>
+                        <div class="form-outline form-white mb-4">
+                          <label for="{{ form.prefix }}-tipo_soli">Fecha de rececion:</label>
+                          {{ form.fecha_inicio }}
+                        </div>
+                        <div class="form-outline form-white mb-4">
+                          <label for="{{ form.prefix }}-tipo_soli">Metodo de pago:</label>
+                          {{ form.metodo_pago }}
+                        </div>
+                        
+                      </fieldset>
+                      <fieldset>
+                        <legend>Datos bicicleta</legend>
+                        
+                        
+                        <div class="form-group">
+                          <label for="{{ form.prefix }}-marca">Marca:</label>
+                          <input type="text" id="{{ form.prefix }}-marca" name="{{ form.prefix }}-marca" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="{{ form.prefix }}-nombre">Modelo bicicleta:</label>
+                          <input type="text" id="{{ form.prefix }}-nombre" name="{{ form.prefix }}-nombre" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="{{ form.prefix }}-descripcion">Comentarios:</label>
+                          <textarea id="{{ form.prefix }}-descripcion" name="{{ form.prefix }}-descripcion" class="form-control" required></textarea>
+                        </div>
+                      </fieldset>
+                    {% endfor %}
+                    
+                    <button type="submit">Enviar</button>
+                  </form>
+
+                    
+
+                  <style>
+                    .custom-textarea {
+                    resize: none;
+                    width: 700px!important;
+                    height: 60px!important;
+                  }
+                 
+                    .dropdown-menu {
+                        background-color: #1B1A1F;
+               
+                  </style>
+
+</body>

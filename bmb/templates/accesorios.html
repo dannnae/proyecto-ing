@@ -37,7 +37,8 @@
                       </a>
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="{% url 'listar_solicitudes' %}">Solicitudes</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_solicitudes' %}?nombre=Arriendo">Solicitudes de arriendo</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_solicitudes' %}?nombre=Reparación">Solicitudes de reparaciones</a></li>
                         <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
                      
                 </ul>
@@ -103,4 +104,8 @@
     </div>
 
 </body>
+<style>
+    .dropdown-menu {
+        background-color: #1B1A1F;
+</style>
 </html>

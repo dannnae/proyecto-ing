@@ -2,6 +2,7 @@ from datetime import date
 from django.forms import formset_factory, modelformset_factory
 from django.shortcuts import render,redirect
 from .models import *
+from datetime import datetime, timedelta
 from .forms import RegistrationForm, SolicitudForm, SolicitudForm2, UsuarioForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as auth_login, logout
@@ -73,15 +74,11 @@ def formarriendo(request):
     else:
         formset = SolicitudUsuarioFormSet(queryset=Solicitud.objects.none(), prefix='solicitud')
     return render(request, 'formarriendo.html', {'formset': formset})
-    
 
 
 
-from datetime import datetime, timedelta
 
-from datetime import datetime, timedelta
 
-from datetime import datetime, timedelta
 
 def reparaciones(request):
     SolicitudUsuarioFormSet = modelformset_factory(
@@ -104,9 +101,9 @@ def reparaciones(request):
                     fecha_estimada=datetime.now().date() + timedelta(days=5)  # Calcular la fecha estimada dentro de 5 días
                 )
                 
-                bicicleta = Bicicleta.objects.create(
-                    nombre='nombre',
-                    descripcion='descripcion',
+                bici_reparacion = BiciReparacion.objects.create(
+                    modelo='modelo',
+                    comentarios='comentarios',
                     marca='marca',
                     solicitud=solicitud,
                     despacho=despacho
@@ -121,15 +118,20 @@ def reparaciones(request):
 
 
 
+#CRUD
 
 
+def ver_solicitudes(request):
+    nombre = request.GET.get('nombre')  # Obtener el valor del parámetro 'nombre' de la solicitud GET
+
+    if nombre is None:
+        solicitudes = Solicitud.objects.all()
+    else:
+        solicitudes = Solicitud.objects.filter(tipo_soli__nombre=nombre)
+
+    return render(request, 'ver_solicitudes.html', {'solicitudes': solicitudes})
 
 
-#CRUD 
-def listar_solicitudes(request):
-    usuario_actual = request.user
-    solicitudes = Solicitud.objects.filter(usuario=usuario_actual)
-    return render(request, 'listar_solicitudes.html', {'solicitudes': solicitudes})
 
 
 def modificar_solicitud(request, pk):
@@ -152,21 +154,19 @@ def eliminar_solicitud(request, pk):
     return redirect('listar_solicitudes')
 
 
-
-
-
-
-
-
-
-
 def exit(request):
     logout(request)
     return redirect('index')
 
+
 def arriendos(request):
+    bicicletas = Bicicleta.objects.all()
     usuarios = Usuario.objects.all()
-    return render(request, 'arriendos.html', {'usuarios': usuarios})
+    context = {
+        'bicicletas': bicicletas,
+        'usuarios': usuarios
+    }
+    return render(request, 'arriendos.html', context)
 
 
 def accesorios(request):
@@ -174,5 +174,3 @@ def accesorios(request):
 
 def nosotros(request):
     return render(request, "nosotros.html")
-
-
